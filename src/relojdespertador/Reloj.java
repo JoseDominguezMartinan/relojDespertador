@@ -33,13 +33,17 @@ public class Reloj
      */
     
     public static void subirHoraActual(){
+        if(horaActual<23)
         horaActual=horaActual+1;
+        else horaActual=0;
     }
     /**
      * disminuye el valor de la hora actual en 1
      */
     public static void subirMinutoActual(){
+        if(minutoActual<59)
         minutoActual=minutoActual+1;
+        else minutoActual=0;
     }
     
 }

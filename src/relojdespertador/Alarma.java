@@ -19,13 +19,18 @@ public class Alarma
      * incrementa la hora de la alarma en una hora
      */
     public static void subirHoraAlarma(){
+        if(horaAlarma<23)
         horaAlarma=horaAlarma+1;
+        else horaAlarma=0;
     }
     /**
      * incrementa el minuto de la alarma en un minuto
      */
     public static void subirMinutoAlarma(){
+        if(minutoAlarma<59)
         minutoAlarma=minutoAlarma+1;
+        else minutoAlarma=0;
+                        
     }
     /**
      * si la hora y minuto de la alarma coinciden con la hora y minuto actual , y ademas la alarma esta encendida, la alarma sonará
