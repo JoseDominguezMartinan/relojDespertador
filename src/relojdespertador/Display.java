@@ -11,8 +11,7 @@ package relojdespertador;
  */
 public class Display
 {
- public void mostrarReloj(){
-     
- }   
+
+  
     
 }

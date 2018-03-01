@@ -29,7 +29,7 @@ public class Reloj
         return minutoActual;
     }
     /**
-     * incrementa el valor de la hora actual en 1
+     * incrementa el valor de la hora actual en 1, si la hora es 23, la siguiente sera la 0
      */
     
     public static void subirHoraActual(){
@@ -38,12 +38,13 @@ public class Reloj
         else horaActual=0;
     }
     /**
-     * disminuye el valor de la hora actual en 1
+     * disminuye el valor de la hora actual en 1, si el minuto es 59, el siguiente sera el 0
      */
     public static void subirMinutoActual(){
         if(minutoActual<59)
         minutoActual=minutoActual+1;
         else minutoActual=0;
     }
+    
     
 }

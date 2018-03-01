@@ -16,7 +16,7 @@ public class Alarma
     private static int minutoAlarma; // minuto al que tiene que sonar la alarma 
     
     /**
-     * incrementa la hora de la alarma en una hora
+     * incrementa la hora de la alarma en una hora, si la hora es 23, la siguiente sera la 0
      */
     public static void subirHoraAlarma(){
         if(horaAlarma<23)
@@ -24,7 +24,7 @@ public class Alarma
         else horaAlarma=0;
     }
     /**
-     * incrementa el minuto de la alarma en un minuto
+     * incrementa el minuto de la alarma en un minuto, si el minuto es 59, el proximo sera el cero
      */
     public static void subirMinutoAlarma(){
         if(minutoAlarma<59)
@@ -50,5 +50,9 @@ public class Alarma
         encendida=true;
         if(encendida==true)
         encendida=false;
+    }
+    public static void incrementarReloj(){
+        long tiempoInicio;
+       tiempoInicio = System.currentTimeMillis();
     }
 }
