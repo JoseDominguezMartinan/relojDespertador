@@ -5,14 +5,16 @@
  */
 package relojdespertador;
 
+import java.util.TimerTask;
+
 /**
  *
  * @author jdominguezmartinan
  */
-public class Reloj
+public class Reloj 
 {
-    private static int horaActual;
-    private static int minutoActual;
+    private static int horaActual=0;
+    private static int minutoActual=0;
     /**
      * devuelve el valor de horaActual
      * @return horaActual con la hora que es en este momento
@@ -45,6 +47,14 @@ public class Reloj
         minutoActual=minutoActual+1;
         else minutoActual=0;
     }
+  
+   
+
+ 
+    public static String devolverHoraString() {
+        return horaActual+":"+minutoActual;
+    }
+        
     
     
 }
