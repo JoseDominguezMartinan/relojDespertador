@@ -79,7 +79,7 @@ public  class Reloj
      * @return horaCompleta
      */
     
-    public static String IncrementarHora(){
+    public static void IncrementarHora(){
         if(minutoActual<59)
             minutoActual++;
         else{
@@ -87,9 +87,27 @@ public  class Reloj
             horaActual++;
         
         }
-        String horaCompleta=devolverHoraString();
-        return horaCompleta;
+       
     } 
+    public static void VisualizarHoraPantalla(){
+          /**
+            * llamamos al tiempo incrementar Hora para que el tiempo cuente como queremos, en este caso los minutos aumentan a cada segundo para poder hacer pruebas
+            * dependiendo de si las horas o los minutos tienen una o dos cifras se formateara la salida de una forma u otra
+            */
+           if(minutoActual<10 && horaActual<10) {
+           Interfaz.pantalla.setText("0"+horaActual+":"+"0"+minutoActual);
+           }
+           else if(horaActual>=10 && minutoActual<10){
+           Interfaz.pantalla.setText(horaActual+":"+"0"+minutoActual);
+           }
+           else if(horaActual<10&&minutoActual>=10){
+            Interfaz.pantalla.setText("0"+horaActual+":"+minutoActual);
+           }
+           else
+           Interfaz.pantalla.setText(horaActual+":"+minutoActual);
+
+    }
+    
         
     /**
      * Inner class para la ejecucion en segundo plano
@@ -100,12 +118,12 @@ public  class Reloj
         
         @Override
         public void run() {
-            String horaCompleta=IncrementarHora();
-           Interfaz.pantalla.setText(horaCompleta);
-             
+            IncrementarHora();
+            if(Alarma.isEnPantalla()==false)
+            VisualizarHoraPantalla();
+            else Alarma.VisualizarAlarmaPantalla();
+            
+          
         }
-        
-    }
-    
-    
+}
 }

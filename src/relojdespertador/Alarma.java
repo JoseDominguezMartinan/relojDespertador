@@ -5,6 +5,10 @@
  */
 package relojdespertador;
 
+import java.util.TimerTask;
+
+
+
 /**
  *
  * @author jdominguezmartinan
@@ -12,8 +16,46 @@ package relojdespertador;
 public class Alarma
 {
    private static boolean encendida=false; // indicador de si la alarma esta activada (true), o desactivada(false)
-    private static int horaAlarma; // hora a la que tiene que sonar la alarma
-    private static int minutoAlarma; // minuto al que tiene que sonar la alarma 
+    private static int horaAlarma=00; // hora a la que tiene que sonar la alarma
+    private static int minutoAlarma=00; // minuto al que tiene que sonar la alarma 
+   private static boolean enPantalla=false;
+    public Alarma(){
+        horaAlarma=00;
+        minutoAlarma=00;
+        
+    }
+
+    public static boolean isEnPantalla() {
+        return enPantalla;
+    }
+
+    public static void setEnPantalla(boolean enPantalla) {
+        Alarma.enPantalla = enPantalla;
+    }
+
+    public static boolean isEncendida() {
+        return encendida;
+    }
+
+    public static void setEncendida(boolean encendida) {
+        Alarma.encendida = encendida;
+    }
+
+    public static int getHoraAlarma() {
+        return horaAlarma;
+    }
+
+    public static void setHoraAlarma(int horaAlarma) {
+        Alarma.horaAlarma = horaAlarma;
+    }
+
+    public static int getMinutoAlarma() {
+        return minutoAlarma;
+    }
+
+    public static void setMinutoAlarma(int minutoAlarma) {
+        Alarma.minutoAlarma = minutoAlarma;
+    }
     
     /**
      * incrementa la hora de la alarma en una hora, si la hora es 23, la siguiente sera la 0
@@ -43,16 +85,44 @@ public class Alarma
             System.out.print("beep");
     }
     /**
-     * marcador de alarma encendida o apagada pasa a true si es false, y a false si es true 
+     * marcador de alarma encendida o apagada pasa a true si es false, y a false si es true , aparece en la pantalla el indicador de encendido activado o desactivado en funcion tambien de este valor 
      */
     public static void encender(){
-        if(encendida==false)
+        if(encendida==false){
         encendida=true;
-        if(encendida==true)
+        Interfaz.indicadorAlarma.setText(".");
+       
+        }
+        else{
         encendida=false;
+        Interfaz.indicadorAlarma.setText("");
+        }
     }
-    public static void incrementarReloj(){
-        long tiempoInicio;
-       tiempoInicio = System.currentTimeMillis();
+           public static void VisualizarAlarmaPantalla(){
+          /**
+            * llamamos al tiempo incrementar Hora para que el tiempo cuente como queremos, en este caso los minutos aumentan a cada segundo para poder hacer pruebas
+            * dependiendo de si las horas o los minutos tienen una o dos cifras se formateara la salida de una forma u otra
+            */
+           if(minutoAlarma<10 && horaAlarma<10) {
+           Interfaz.pantalla.setText("0"+horaAlarma+":"+"0"+minutoAlarma);
+           enPantalla=true;
+           }
+           else if(horaAlarma>=10 && minutoAlarma<10){
+           Interfaz.pantalla.setText(horaAlarma+":"+"0"+minutoAlarma);
+           enPantalla=true;
+           }
+           else if(horaAlarma<10&&minutoAlarma>=10){
+            Interfaz.pantalla.setText("0"+horaAlarma+":"+minutoAlarma);
+            enPantalla=true;
+           }
+           else
+           Interfaz.pantalla.setText(horaAlarma+":"+minutoAlarma);
+           enPantalla=true;
+
+    
     }
+   
+        
+    
+    
 }
