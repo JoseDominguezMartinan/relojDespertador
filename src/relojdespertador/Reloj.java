@@ -11,22 +11,27 @@ import java.util.Timer;
 import java.util.TimerTask;
 
 /**
- *
- * @author jdominguezmartinan
+ * 
+ * @author jose
  */
 public  class Reloj 
 {
-
+/**
+ * atributos horaActual para almacenar la hora y minutoActual para almacenar los minutos, son la hora y el minuto real del momento, no de la alarma
+ */
     private static int horaActual=0;
     private static int minutoActual=0;
     Timer timer;
-    
+    /**
+     * constructor reloj donde creo un timer para que haga una accion cada cierto tiempo
+     * esta puesto para que haga la accion cada segundo para que se puedan hacer mejor las pruebas, para un funcionamiento real se pondria a cada segundo
+     */
     public Reloj(){
-        Date horas=new Date();
-         horaActual=horas.getHours();
-         minutoActual=horas.getMinutes();
+        Date horas=new Date(); // creamos variable date para recibir fecha y hora del sistema 
+         horaActual=horas.getHours(); // almacenamos en la variable la hora del sistema
+         minutoActual=horas.getMinutes(); // almacenamos en la variable los minutos del sistema
         timer=new Timer();
-        timer.schedule(new TicTac(),0,1000);
+        timer.schedule(new TicTac(),0,1000); // realizaremos el metodo tic tac cada segundo 
     }
 
     /**
@@ -61,35 +66,42 @@ public  class Reloj
         minutoActual=minutoActual+1;
         else minutoActual=0;
     }
-  
+  /**
+   * metodo para obtener la hora completa, formateada HH:MM
+   * @return String horaActual:minutoActual 
+   */
 
     public static String devolverHoraString() {
         return horaActual+":"+minutoActual;
     }
+    /**
+     * metodo para que el reloj avance automaticatemente, cuando pasen 60 minutos la hora se incrementara 
+     * @return horaCompleta
+     */
     
     public static String IncrementarHora(){
         if(minutoActual<59)
             minutoActual++;
         else{
             minutoActual=0;
-        }
-        if(horaActual<23){
             horaActual++;
-        }
-        else{
-            horaActual=0;
+        
         }
         String horaCompleta=devolverHoraString();
         return horaCompleta;
     } 
         
+    /**
+     * Inner class para la ejecucion en segundo plano
+     * ejecuta el metodo incrementar Hora y  muestra el resultado en la interfaz
+     */
     
     public class TicTac extends TimerTask{
         
         @Override
         public void run() {
             String horaCompleta=IncrementarHora();
-           Interfaz.pantalla.setText("200");
+           Interfaz.pantalla.setText(horaCompleta);
              
         }
         

@@ -5,6 +5,9 @@
  */
 package relojdespertador;
 
+import java.awt.Font;
+import javax.swing.JTextField;
+
 /**
  *
  * @author jose
@@ -16,6 +19,13 @@ public class Interfaz extends javax.swing.JFrame {
      */
     public Interfaz() {
         initComponents();
+        setVisible(true);
+        setLocation(300,200);
+        Font fuente=new Font("Dialog",Font.BOLD,60);
+        Font fuente_indicador=new Font("Dialog",Font.BOLD,20);
+        pantalla.setFont(fuente_indicador);
+        pantalla.setHorizontalAlignment(JTextField.CENTER);
+        
     }
 
     /**
