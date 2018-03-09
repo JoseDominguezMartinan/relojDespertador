@@ -18,6 +18,7 @@ public class RelojDespertador
     public static void main(String[] args)
     {
         // TODO code application logic here
+        new Reloj();
     }
     
 }

@@ -5,6 +5,10 @@
  */
 package relojdespertador;
 
+import java.util.Date;
+import java.util.Timer;
+import java.util.TimerTask;
+
 /**
  *
  * @author jdominguezmartinan
@@ -13,6 +17,12 @@ public class Reloj
 {
     private static int horaActual;
     private static int minutoActual;
+    Timer timer;
+   
+    public Reloj(){
+        timer=new Timer();
+        timer.schedule(new TicTac(),0,1000);
+    }
     /**
      * devuelve el valor de horaActual
      * @return horaActual con la hora que es en este momento
@@ -44,6 +54,16 @@ public class Reloj
         if(minutoActual<59)
         minutoActual=minutoActual+1;
         else minutoActual=0;
+    }
+    
+    public class TicTac extends TimerTask{
+        
+        @Override
+        public void run() {
+            System.out.println(new Date());  
+             
+        }
+        
     }
     
     
