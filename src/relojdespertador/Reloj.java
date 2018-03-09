@@ -31,7 +31,7 @@ public  class Reloj
          horaActual=horas.getHours(); // almacenamos en la variable la hora del sistema
          minutoActual=horas.getMinutes(); // almacenamos en la variable los minutos del sistema
         timer=new Timer();
-        timer.schedule(new TicTac(),0,1000); // realizaremos el metodo tic tac cada segundo 
+        timer.schedule(new TicTac(),0,60000); // realizaremos el metodo tic tac cada segundo 
     }
 
     /**

@@ -52,7 +52,7 @@ public class Interfaz extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         cambiarHora = new javax.swing.JButton();
         cambiarMinutos = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
+        snooze = new javax.swing.JButton();
         horaSiNo = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         pantalla = new javax.swing.JTextField();
@@ -95,7 +95,17 @@ public class Interfaz extends javax.swing.JFrame {
             }
         });
 
-        jButton3.setText("snooze");
+        snooze.setText("snooze");
+        snooze.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                snoozeMouseClicked(evt);
+            }
+        });
+        snooze.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                snoozeActionPerformed(evt);
+            }
+        });
 
         horaSiNo.setText("Hora/Alarma");
         horaSiNo.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -164,7 +174,7 @@ public class Interfaz extends javax.swing.JFrame {
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(indicadorAlarma)
                             .addComponent(indicadorHoraAlarma, javax.swing.GroupLayout.DEFAULT_SIZE, 60, Short.MAX_VALUE)))
-                    .addComponent(jButton3, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(snooze, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                             .addComponent(cambiarMinutos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -183,7 +193,7 @@ public class Interfaz extends javax.swing.JFrame {
                 .addComponent(jLabel1)
                 .addGap(0, 22, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addComponent(jButton3)
+                .addComponent(snooze)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                     .addComponent(pantalla, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -228,12 +238,26 @@ public class Interfaz extends javax.swing.JFrame {
 
     private void cambiarHoraMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_cambiarHoraMouseClicked
         // TODO add your handling code here:
+        if(Alarma.isEnPantalla()==false){
         Reloj.subirHoraActual();
+        Reloj.VisualizarHoraPantalla();
+        }
+        else{
+        Alarma.subirHoraAlarma();
+        Alarma.VisualizarAlarmaPantalla();
+        }
     }//GEN-LAST:event_cambiarHoraMouseClicked
 
     private void cambiarMinutosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_cambiarMinutosMouseClicked
         // TODO add your handling code here:
+        if(Alarma.isEnPantalla()==false){
         Reloj.subirMinutoActual();
+        Reloj.VisualizarHoraPantalla();
+        }
+        else{
+        Alarma.subirMinutoAlarma();
+        Alarma.VisualizarAlarmaPantalla();
+        }
     }//GEN-LAST:event_cambiarMinutosMouseClicked
 
     private void encenderAlarmaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_encenderAlarmaActionPerformed
@@ -281,6 +305,16 @@ public class Interfaz extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_indicadorHoraAlarmaActionPerformed
 
+    private void snoozeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_snoozeActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_snoozeActionPerformed
+
+    private void snoozeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_snoozeMouseClicked
+        // TODO add your handling code here:
+        if(Alarma.getHoraAlarma()==Reloj.devolverHoraActual() && Alarma.getMinutoAlarma()==Reloj.devolverMinutoActual() && Alarma.isEncendida()==true)
+        Alarma.posponerAlarma();
+    }//GEN-LAST:event_snoozeMouseClicked
+
     /**
      * @param args the command line arguments
      */
@@ -326,13 +360,13 @@ public class Interfaz extends javax.swing.JFrame {
     private javax.swing.JButton horaSiNo;
     static javax.swing.JTextField indicadorAlarma;
     private javax.swing.JTextField indicadorHoraAlarma;
-    private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JRadioButtonMenuItem jRadioButtonMenuItem1;
     private javax.swing.JRadioButtonMenuItem jRadioButtonMenuItem2;
     private javax.swing.JRadioButtonMenuItem jRadioButtonMenuItem3;
     public static javax.swing.JTextField pantalla;
+    private javax.swing.JButton snooze;
     // End of variables declaration//GEN-END:variables
 
 

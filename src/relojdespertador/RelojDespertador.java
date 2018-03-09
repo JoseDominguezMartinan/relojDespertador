@@ -26,6 +26,7 @@ public class RelojDespertador
         // TODO code application logic here
         Interfaz ventana=new Interfaz();
         new Reloj();
+        new Alarma();
        
         
         

@@ -85,7 +85,7 @@
                               <Component id="indicadorHoraAlarma" pref="60" max="32767" attributes="0"/>
                           </Group>
                       </Group>
-                      <Component id="jButton3" alignment="0" max="32767" attributes="0"/>
+                      <Component id="snooze" alignment="0" max="32767" attributes="0"/>
                       <Group type="102" alignment="0" attributes="0">
                           <Group type="103" groupAlignment="1" max="-2" attributes="0">
                               <Component id="cambiarMinutos" max="32767" attributes="0"/>
@@ -111,7 +111,7 @@
                   <EmptySpace min="0" pref="22" max="32767" attributes="0"/>
               </Group>
               <Group type="102" alignment="1" attributes="0">
-                  <Component id="jButton3" min="-2" max="-2" attributes="0"/>
+                  <Component id="snooze" min="-2" max="-2" attributes="0"/>
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="1" max="-2" attributes="0">
                       <Component id="pantalla" min="-2" pref="122" max="-2" attributes="0"/>
@@ -160,10 +160,14 @@
             <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="cambiarMinutosMouseClicked"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JButton" name="jButton3">
+        <Component class="javax.swing.JButton" name="snooze">
           <Properties>
             <Property name="text" type="java.lang.String" value="snooze"/>
           </Properties>
+          <Events>
+            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="snoozeMouseClicked"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="snoozeActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JButton" name="horaSiNo">
           <Properties>
