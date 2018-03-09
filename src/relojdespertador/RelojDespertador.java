@@ -24,25 +24,8 @@ public class RelojDespertador
     public static void main(String[] args)
     {
         // TODO code application logic here
-       System.out.println(Reloj.devolverHoraActual());
-       TimerTask timertask=new TimerTask(){
-          
-
-           @Override
-           public void run() {
-               Reloj.subirHoraActual();
-                
-               Reloj.subirMinutoActual();
-               Interfaz.mostrarHora();
-               
-           }
-       };
-       Timer timer=new Timer();
-       timer.scheduleAtFixedRate(timertask,0,1000);
-       
-      
-        
+        Interfaz ventana=new Interfaz();
+        new Reloj();
     }
-
 
 }

@@ -80,6 +80,8 @@ public class Interfaz extends javax.swing.JFrame {
         jLabel1.setText("jLabel1");
 
         pantalla.setEditable(false);
+        pantalla.setCaretColor(new java.awt.Color(204, 204, 255));
+        pantalla.setDisabledTextColor(new java.awt.Color(0, 0, 0));
         pantalla.setSelectedTextColor(new java.awt.Color(0, 0, 0));
         pantalla.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -209,11 +211,9 @@ public class Interfaz extends javax.swing.JFrame {
     private javax.swing.JRadioButtonMenuItem jRadioButtonMenuItem2;
     private javax.swing.JRadioButtonMenuItem jRadioButtonMenuItem3;
     private javax.swing.JToggleButton jToggleButton1;
-    private static javax.swing.JTextField pantalla;
+    public static javax.swing.JTextField pantalla;
     // End of variables declaration//GEN-END:variables
-public static void mostrarHora(){
-    pantalla.setText(Reloj.devolverHoraString());
-}
+
 
 
 }
