@@ -19,8 +19,8 @@ public  class Reloj
 /**
  * atributos horaActual para almacenar la hora y minutoActual para almacenar los minutos, son la hora y el minuto real del momento, no de la alarma
  */
-    private static int horaActual=0;
-    private static int minutoActual=0;
+    private static int horaActual=0; // hrra que se mostrara en pantalla del reloj
+    private static int minutoActual=0;// minuto que se mostrara en la pantalla del reloj
     Timer timer;
     /**
      * constructor reloj donde creo un timer para que haga una accion cada cierto tiempo
@@ -89,11 +89,11 @@ public  class Reloj
         }
        
     } 
+    /**
+     * metodo para visualizar en pantalla la hora actual, formateada de forma HH:MM
+     */
     public static void VisualizarHoraPantalla(){
-          /**
-            * llamamos al tiempo incrementar Hora para que el tiempo cuente como queremos, en este caso los minutos aumentan a cada segundo para poder hacer pruebas
-            * dependiendo de si las horas o los minutos tienen una o dos cifras se formateara la salida de una forma u otra
-            */
+       
            if(minutoActual<10 && horaActual<10) {
            Interfaz.pantalla.setText("0"+horaActual+":"+"0"+minutoActual);
            }
@@ -118,10 +118,10 @@ public  class Reloj
         
         @Override
         public void run() {
-            IncrementarHora();
-            if(Alarma.isEnPantalla()==false)
-            VisualizarHoraPantalla();
-            else Alarma.VisualizarAlarmaPantalla();
+            IncrementarHora(); // se tiene que ejecutar siempre, para poder mostrar la hora en tiempo real 
+            if(Alarma.isEnPantalla()==false) // cuando esta marcada la opcion de mostrar hora real
+            VisualizarHoraPantalla(); // la visualizamos 
+            else Alarma.VisualizarAlarmaPantalla(); // en caso contrario visualizamos la hora de la alarma 
             
           
         }

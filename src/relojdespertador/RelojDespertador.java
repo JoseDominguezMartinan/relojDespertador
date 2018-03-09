@@ -17,6 +17,7 @@ public class RelojDespertador
 {
 
     /**
+     * metodo main , se llama a la ventana del reloj y llamamos a los contructores de reloj y alarma para que se ejecuten ya en segundo plano cada uno de los run que tenemos en las inner class que hay en ellas 
      * @param args the command line arguments
      */
     

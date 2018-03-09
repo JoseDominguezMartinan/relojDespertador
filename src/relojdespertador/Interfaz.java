@@ -235,7 +235,10 @@ public class Interfaz extends javax.swing.JFrame {
     private void pantallaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pantallaActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_pantallaActionPerformed
-
+/**
+ * metodo para subir la hora o la hora de la alarma cuando se pulsa el boton correspondiente 
+ * @param evt 
+ */
     private void cambiarHoraMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_cambiarHoraMouseClicked
         // TODO add your handling code here:
         if(Alarma.isEnPantalla()==false){
@@ -247,7 +250,10 @@ public class Interfaz extends javax.swing.JFrame {
         Alarma.VisualizarAlarmaPantalla();
         }
     }//GEN-LAST:event_cambiarHoraMouseClicked
-
+/**
+ * metodo para, cuando se pulse el boton correspondiente, incrementar el minuto de la hora si esta es la que se esta mostrando, o de la alarma en caso contrario 
+ * @param evt 
+ */
     private void cambiarMinutosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_cambiarMinutosMouseClicked
         // TODO add your handling code here:
         if(Alarma.isEnPantalla()==false){
@@ -259,18 +265,27 @@ public class Interfaz extends javax.swing.JFrame {
         Alarma.VisualizarAlarmaPantalla();
         }
     }//GEN-LAST:event_cambiarMinutosMouseClicked
-
+/**
+ * 
+ * @param evt 
+ */
     private void encenderAlarmaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_encenderAlarmaActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_encenderAlarmaActionPerformed
-
+/**
+ * cunado se pulsa el boton encender alarma llamamos al metodo que marca la bancera como true 
+ * @param evt 
+ */
     private void encenderAlarmaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_encenderAlarmaMouseClicked
         // TODO add your handling code here:
         Alarma.encender();
         
         
     }//GEN-LAST:event_encenderAlarmaMouseClicked
-
+/**
+ * metodo que, cuando se pulsa el boton hora/alarma, en funcion de lo que se este mostrando en pantalla cambia a hora o alarma y cambia tanto el texto de la caja que indica que estas viendo , como la bandera 
+ * @param evt 
+ */
     private void horaSiNoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_horaSiNoMouseClicked
         
        if(Alarma.isEnPantalla()==false){
@@ -308,7 +323,10 @@ public class Interfaz extends javax.swing.JFrame {
     private void snoozeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_snoozeActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_snoozeActionPerformed
-
+/**
+ * en caso de que se cumpla la condicion para que suene la alarma, al ser pulsado este boton, pospone la alarma cinco minutos, si no cumple los requisitos este boton no hace nada
+ * @param evt 
+ */
     private void snoozeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_snoozeMouseClicked
         // TODO add your handling code here:
         if(Alarma.getHoraAlarma()==Reloj.devolverHoraActual() && Alarma.getMinutoAlarma()==Reloj.devolverMinutoActual() && Alarma.isEncendida()==true)
