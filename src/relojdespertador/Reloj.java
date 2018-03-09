@@ -75,20 +75,26 @@ public  class Reloj
         return horaActual+":"+minutoActual;
     }
     /**
-     * metodo para que el reloj avance automaticatemente, cuando pasen 60 minutos la hora se incrementara 
+     * metodo para que el reloj avance automaticatemente, cuando pasen 60 minutos la hora se incrementara , si la hora es 23 la siguiente sera cero, y si el minuto es 59 el siguiente sera 0
      * @return horaCompleta
      */
     
     public static void IncrementarHora(){
-        if(minutoActual<59)
-            minutoActual++;
-        else{
+        if(minutoActual<59 && horaActual<23){
+            minutoActual=minutoActual+1;
+        }
+        else if(horaActual>=23 && minutoActual>=59){
             minutoActual=0;
-            horaActual++;
-        
+            horaActual=0;
+            }
+            else {
+                minutoActual=minutoActual+1;
+                horaActual=0;
+            }
+   
         }
        
-    } 
+     
     /**
      * metodo para visualizar en pantalla la hora actual, formateada de forma HH:MM
      */
